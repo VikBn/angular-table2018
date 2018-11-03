@@ -1,0 +1,14 @@
+<p class="table__wrapper">
+  <mat-table [dataSource]="dataSource" matSort matSortActive="name" matSortDirection="asc" matSortDisableClear>
+    <ng-container matColumnDef="colorName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header><span>Color</span></mat-header-cell>
+      <mat-cell *matCellDef="let data">{{data.colorName}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="hexValue">
+      <mat-header-cell *matHeaderCellDef><span>Background</span></mat-header-cell>
+      <mat-cell [ngStyle]="{'background-color': data.hexValue}" *matCellDef="let data"></mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns" color="primary"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+</p>
